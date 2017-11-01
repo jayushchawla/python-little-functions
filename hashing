@@ -1,0 +1,12 @@
+import hashlib
+
+#md5 hashing
+
+input_to_hash= input('enter input to hash')
+hashmd5=hashlib.md5(input_to_hash.encode())
+print ("the md5 hashing is" ,hashmd5.hexdigest())
+
+#sha256 hashing
+
+hashsha256= hashlib.sha256(input_to_hash.encode())
+print ("the sha256 hashing is",hashsha256.hexdigest())
