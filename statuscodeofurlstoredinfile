@@ -1,0 +1,9 @@
+import requests
+
+#file path will be path of your local file
+
+with open('filepath') as f:
+    for line in f:
+        print line
+        response = requests.get(line)
+        print str(response.status_code)
