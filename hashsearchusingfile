@@ -1,0 +1,46 @@
+import hashlib
+import requests
+lists=[]
+def line_counter():
+    counter=0
+    with open('fileb.txt', 'r') as search:
+# fileb stores list of hashes 
+      for i in search:
+         counter+=1
+    return counter
+
+
+with open('filea.txt','r') as search1:
+
+#filea stores list of keywords whose hash is to search
+
+      for line in search1:
+        count = 0
+
+        with open('fileb.txt', 'r') as search2:
+
+         for lines in search2:
+
+
+            line = line.rstrip()
+            hash = hashlib.md5(line.encode())
+            md5 = hash.hexdigest()
+
+            lines=lines.rstrip()
+
+
+
+            if md5 in lines:
+                       print (line, "hash matches with", lines)
+            else:
+                       count +=1
+
+         if count==line_counter():
+             lists.append(line)
+print ("Elements whose hash not found", lists)
+
+
+
+
+
+
